@@ -7,3 +7,8 @@
 	- Render them ASAP (don't just blindly wait for all to finish loading)
 	- BUT, render them in proper (obvious) order: "file1", "file2", "file3".
 	- After all 3 are done, output "Complete!".
+
+
+My Solution: ex4.js
+His Solution: ex4-fixed.js
+Starter: ex4-start.js
