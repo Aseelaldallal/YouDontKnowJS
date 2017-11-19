@@ -34,7 +34,7 @@ getData(10) // Returns a promise that 1000 ms from now we'll resolve the promise
 .then(function(num1) {
 	x = 1 + num1;
 	return getData(30);
-})
+}) // waits for the promise of getData(30)
 .then(function(num2) {
 	y = 1 + num2;
 	return getData("Meaning of Life: " + (x + y));

@@ -27,24 +27,23 @@ function getFile(file) {
 	});
 }
 
-var p1 = getFile("file1");
-var p2 = getFile("file2");
-var p3 = getFile("file3");
+let p1 = getFile("file1");
+let p2 = getFile("file2");
+let p3 = getFile("file3");
 
 p1
-.then(function(text) {
-	console.log(text);
+.then(output)
+.then(function() {
 	return p2;
 })
-.then(function(text2) {
-	console.log(text2);
+.then(output)
+.then(function() {
 	return p3;
 })
-.then(function(text3) {
-	console.log(text3);
+.then(output)
+.then(function() {
 	console.log("Complete!");
 })
-
 
 
 // **************************************
