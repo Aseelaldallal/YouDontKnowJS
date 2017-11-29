@@ -7,3 +7,13 @@
 3. Set up another reactive sequence that samples the sequence stream from (2) once per second. In other words, if you click the button multiple times in a second, you only get one event message. Hint: `setInterval(..)`
 
 4. The sampled sequence should add a "clicked!" message to the list.
+
+
+# My Sol:
+ex8.js
+
+# Starter File:
+ex8-start.js
+
+# His Solution:
+ex8-fixed.js
