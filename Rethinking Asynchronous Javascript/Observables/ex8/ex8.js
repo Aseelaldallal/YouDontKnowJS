@@ -3,7 +3,7 @@
 
 // This solution seems fair and seems to work but there is subtelty here: setTimeout waits at least 5000 
 // 'timeBetweenClicks' milliseconds. I.e, it could be waiting more. We need to change this.
-
+// Problem : We want to separate production of our stream from consumption of stream
 
 // $(document).ready(function(){
 // 	var $btn = $("#btn"),
@@ -38,6 +38,8 @@
 // ============ SOLUTION 2 ===============//
 
 // Using SetInterval -- This might suffer from the same subtelety as above
+// Problem : We want to separate production of our stream from consumption of stream
+// See btn.click has evt - event.. mixing code too much
 
 // $(document).ready(function(){
 // 	var $btn = $("#btn"),
@@ -61,7 +63,6 @@
 //     }
 
 //     $btn.click(function(event) {
-//         console.log(event);
 //         evt = event;
 //     })
 
@@ -139,7 +140,9 @@
     
 //     })
 
-    // ============ SOLUTION 5 ===============//
+    // =============== SOLUTION 5 ===============//
+
+    // His solution. Best solution because separates concerns
 
     $(document).ready(function() {
         
@@ -151,9 +154,14 @@
 
             let latest;
         
+
+            // DOM EVENT HANDLING -- PRODUCTION OF STREAM
+
             $btn.click(function(evt) {
-                latest = evt;
+                clicks.push(evt);
             })
+
+            // STREAM EVENT HANDLING -- CONSUMPTION OF STREAM
 
             setInterval(function() {
                 if(latest) {
@@ -161,6 +169,10 @@
                     latest = null;
                 }
             },3000);
+
+            clicks.val(function() {
+                latest = evt;
+            })
         
             msgs.val(function(msg) {
                 $list.append("<li>" + msg + "</li>");
